@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+}
+
+.empty-error {
+    border: 1px solid #f44336;
+}
+
+.disabled-btn {
+    color: #ddd;
+    cursor: no-drop;
+}
+
+.active-page {
+    background-color: #d9d9d9;
+}
