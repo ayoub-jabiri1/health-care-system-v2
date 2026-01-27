@@ -10,7 +10,8 @@ let reservePopup = document.getElementById("reserve-appointment-popup"),
     tableBody = document.getElementById("table-body"),
     deletePopup = document.getElementById("delete-popup"),
     inputs = document.querySelectorAll("input"),
-    paginationHolder = document.getElementById("pagination");
+    paginationHolder = document.getElementById("pagination"),
+    searchInp = document.getElementById("search-inp");
 
 // 2. <-- Main Variables -->
 
@@ -327,3 +328,5 @@ setDateInPage();
 document.getElementById("delete-btn").addEventListener("click", () => {
     deleteItem();
 });
+
+// 8. <-- Toggle Search Input -->
