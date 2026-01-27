@@ -11,6 +11,7 @@ let reservePopup = document.getElementById("reserve-appointment-popup"),
     deletePopup = document.getElementById("delete-popup"),
     inputs = document.querySelectorAll("input"),
     paginationHolder = document.getElementById("pagination"),
+    closeSearch = document.getElementById("close-search-btn"),
     searchInp = document.getElementById("search-inp");
 
 // 2. <-- Main Variables -->
@@ -329,4 +330,54 @@ document.getElementById("delete-btn").addEventListener("click", () => {
     deleteItem();
 });
 
-// 8. <-- Toggle Search Input -->
+// 8. <-- Handle Seacrh -->
+
+searchInp.addEventListener("input", () => {
+    let searchValue = searchInp.value.toLowerCase();
+
+    if (searchValue !== "") {
+        // Show Close Search Button
+        closeSearch.classList.replace("hidden", "flex");
+
+        // Reset the Main Data
+        appointmentsData =
+            JSON.parse(localStorage.getItem("appointments")) || [];
+
+        // Filter tha Data Based on the Search
+        let filtredData = [];
+        for (let appointment of appointmentsData) {
+            let check =
+                appointment.firstName.toLowerCase().includes(searchValue) ||
+                appointment.lastName.toLowerCase().includes(searchValue) ||
+                appointment.phoneNumber.toLowerCase().includes(searchValue) ||
+                appointment.email.toLowerCase().includes(searchValue);
+
+            if (check) {
+                filtredData.push(appointment);
+            }
+
+            // Set the Filtered Data in the Main Array
+            appointmentsData = filtredData;
+
+            // Update the Table
+            setDateInPage();
+        }
+    } else {
+        // Hide Close Search Button
+        closeSearch.classList.replace("flex", "hidden");
+    }
+});
+
+closeSearch.addEventListener("click", () => {
+    // Empty the Input
+    searchInp.value = "";
+
+    // Hide Close Search Button
+    closeSearch.classList.replace("flex", "hidden");
+
+    // Reset the Main Data
+    appointmentsData = JSON.parse(localStorage.getItem("appointments")) || [];
+
+    // Update the Table
+    setDateInPage();
+});
