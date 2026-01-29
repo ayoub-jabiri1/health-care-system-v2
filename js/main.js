@@ -21,7 +21,8 @@ let appointmentsData = JSON.parse(localStorage.getItem("appointments")) || [],
     totalPages = 0,
     currentIndexToDelete,
     currentPage = 1,
-    rowsPerPage = 5;
+    rowsPerPage = 5,
+    theme = "light";
 
 // 3. <-- Main Functions -->
 
@@ -36,7 +37,7 @@ const setDateInPage = () => {
         for (let [index, appointment] of appointments.entries()) {
             tableBody.innerHTML += `
             <tr
-                class="block w-full px-2 py-4 not-last:border-b not-last:border-[#ddd] hover:bg-[#eee] transition">
+                class="secondary-bg text-color block w-full px-2 py-4 not-last:border-b not-last:border-[#ddd] hover:bg-[#eee] transition">
                 <td class="w-[150px] text-center">
                     ${appointment.firstName}
                 </td>
@@ -46,11 +47,19 @@ const setDateInPage = () => {
                 <td class="w-[150px] text-center">
                     ${appointment.phoneNumber}
                 </td>
-                <td class="w-[150px] text-center">
-                    ${appointment.email}
+                <td class="w-[150px] text-center" title="${appointment.email}">
+                    ${
+                        appointment.email.length <= 10
+                            ? appointment.email
+                            : appointment.email.slice(0, 10) + "..."
+                    }
                 </td>
-                <td class="w-[150px] text-center">
-                    ${appointment.reason}
+                <td class="w-[150px] text-center" title="${appointment.reason}">
+                    ${
+                        appointment.reason.length <= 10
+                            ? appointment.reason
+                            : appointment.reason.slice(0, 10) + "..."
+                    }
                 </td>
                 <td class="w-[150px] text-center">
                     ${appointment.date}
@@ -380,4 +389,28 @@ closeSearch.addEventListener("click", () => {
 
     // Update the Table
     setDateInPage();
+});
+
+// 9. <-- Handle App Theme Modes -->
+
+document.getElementById("theme-btn").addEventListener("click", () => {
+    let rootElement = document.documentElement;
+
+    if (theme == "light") {
+        // Toggle CSS Variables
+        rootElement.style.setProperty("--main-bg", "#000");
+        rootElement.style.setProperty("--secondary-bg", "#000");
+        rootElement.style.setProperty("--text-color", "#fff");
+
+        // Switch Theme
+        theme = "dark";
+    } else {
+        // Toggle CSS Variables
+        rootElement.style.setProperty("--main-bg", "#eee");
+        rootElement.style.setProperty("--secondary-bg", "#fff");
+        rootElement.style.setProperty("--text-color", "#000");
+
+        // Switch Theme
+        theme = "light";
+    }
 });

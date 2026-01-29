@@ -1,7 +1,23 @@
 @import "tailwindcss";
 
+:root {
+    --main-bg: #eee;
+    --secondary-bg: #fff;
+    --text-color: #000;
+}
+
 body {
     font-family: "Roboto", sans-serif;
+}
+
+.main-bg {
+    background-color: var(--main-bg);
+}
+.secondary-bg {
+    background-color: var(--secondary-bg);
+}
+.text-color {
+    color: var(--text-color);
 }
 
 .container {

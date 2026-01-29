@@ -22,11 +22,10 @@
         <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
-        <div
-            id="app"
-            class="bg-[#eee] w-screen h-screen flex items-center py-4"
-        >
-            <div class="container mx-auto bg-white rounded-[10px] p-4">
+        <div id="app" class="main-bg min-h-screen flex items-center py-4">
+            <div
+                class="container mx-auto secondary-bg border border-white rounded-[10px] p-4"
+            >
                 <!-- Start Header -->
                 <header class="flex justify-between items-center mb-6">
                     <div id="logo" class="flex gap-1 items-center">
@@ -35,7 +34,7 @@
                             alt="App Logo"
                             class="w-[50px]"
                         />
-                        <h1 class="font-bold">
+                        <h1 class="font-bold text-color">
                             HealthCare <br />
                             Booking System
                         </h1>
@@ -50,12 +49,12 @@
                 <!-- End Header -->
                 <!-- Start App Body -->
                 <section>
-                    <h2 class="text-xl font-bold text-center mb-4">
+                    <h2 class="text-color text-xl font-bold text-center mb-4">
                         Demands List
                     </h2>
                     <div class="flex justify-between items-center">
                         <div class="flex items-center gap-3">
-                            <span>Search by: </span>
+                            <span class="text-color">Search by: </span>
                             <div
                                 id="search-holder"
                                 class="lg:w-[190px] relative"
@@ -90,7 +89,7 @@
                         </button>
                     </div>
                     <table
-                        class="block bg-white rounded-[10px] max-w-[900px] max-md:w-[95%] shadow-[0_0_10px_-5px_#000] mt-6 mx-auto overflow-auto"
+                        class="block bg-white border border-white rounded-[10px] max-w-[900px] max-md:w-[95%] shadow-[0_0_10px_-5px_#000] mt-6 mx-auto overflow-auto"
                     >
                         <thead
                             class="bg-[#F3F5F9] text-[#888080] block w-[900px] p-2 border-b border-[#ddd]"
@@ -115,10 +114,10 @@
                             id="table-body"
                             class="block w-[900px] max-h-[290px] overflow-y-auto"
                         ></tbody>
-                        <tfoot
-                            class="block w-[900px] p-2 border-t border-[#ddd]"
-                        >
-                            <tr class="flex justify-between items-center">
+                        <tfoot class="block w-[900px] border-t border-[#ddd]">
+                            <tr
+                                class="secondary-bg text-color p-2 flex justify-between items-center"
+                            >
                                 <td>
                                     <p class="text-xs">
                                         Total Demands:
@@ -150,7 +149,9 @@
                     id="reserve-appointment-popup"
                     class="fixed top-0 left-0 w-screen h-screen py-4 bg-[#00000066] hidden justify-center items-center"
                 >
-                    <div class="bg-white p-4 w-fit rounded-[10px]">
+                    <div
+                        class="secondary-bg text-color p-4 w-fit rounded-[10px]"
+                    >
                         <h2 class="text-xl text-center font-bold mb-4">
                             Rerserve an Appointemnt
                         </h2>
