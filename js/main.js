@@ -414,8 +414,8 @@ document.getElementById("theme-btn").addEventListener("click", () => {
 
     if (theme == "light") {
         // Toggle CSS Variables
-        rootElement.style.setProperty("--main-bg", "#000");
-        rootElement.style.setProperty("--secondary-bg", "#000");
+        rootElement.style.setProperty("--main-bg", "#333");
+        rootElement.style.setProperty("--secondary-bg", "#333");
         rootElement.style.setProperty("--text-color", "#fff");
 
         // Switch Theme
