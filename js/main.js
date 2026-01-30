@@ -258,10 +258,16 @@ const paginationNextNavigation = (btn) => {
 
 document.getElementById("reserve-popup-btn").addEventListener("click", () => {
     reservePopup.classList.replace("hidden", "flex");
+
+    // Disable the Search Input
+    searchInp.disabled = true;
 });
 
 document.getElementById("cancel-btn").addEventListener("click", () => {
     reservePopup.classList.replace("flex", "hidden");
+
+    // Enable the Search Input
+    searchInp.disabled = false;
 });
 
 // 5. <-- Get Data -->
@@ -316,6 +322,9 @@ document.getElementById("reserve-btn").addEventListener("click", () => {
 
         // Set Date in the Localstorage
         updateLocalstorage();
+
+        // Enable the Search Input
+        searchInp.disabled = false;
     } else {
         showPopup("error", "Some of the required data was not given!");
 
@@ -374,6 +383,13 @@ searchInp.addEventListener("input", () => {
     } else {
         // Hide Close Search Button
         closeSearch.classList.replace("flex", "hidden");
+
+        // Reset the Main Data
+        appointmentsData =
+            JSON.parse(localStorage.getItem("appointments")) || [];
+
+        // Update the Table
+        setDateInPage();
     }
 });
 
